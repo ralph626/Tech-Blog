@@ -1,0 +1,26 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "cms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ralph626/Tech-Blog.git"
+  },
+  "author": "Rafael Orozco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ralph626/Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/ralph626/Tech-Blog#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.7"
+  }
+}
