@@ -39,8 +39,8 @@ Here's a brief intro about what a developer must do in order to start developing
 the project further:
 
 ```shell
-git clone https://github.com/your/awesome-project.git
-cd awesome-project/
+git clone git@github.com:ralph626/Tech-Blog.git
+cd Tech-Blog/
 packagemanager install
 ```
 

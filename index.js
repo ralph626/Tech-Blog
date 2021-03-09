@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const handlebars = require("express-handlebars");
 const app = express();
 
+const DB = require("./utils/db");
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
 
