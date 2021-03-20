@@ -13,7 +13,10 @@ class UserController {
       userName,
     });
     if (user && bcrypt.compareSync(password, user.password)) {
-      return user;
+      return {
+        id: user.id,
+        userName: user.userName,
+      };
     }
     return false;
   }

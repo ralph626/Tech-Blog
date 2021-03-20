@@ -1,0 +1,61 @@
+<h1 id="header">
+    Log In
+</h1>
+<div class="mb-3">
+    <label for="login" class="form-label">User name</label>
+    <input type="text" class="form-control" id="login" placeholder="Enter user name">
+</div>
+<div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input id="password" type="password" class="form-control">
+</div>
+<button id="submitBtn" class="btn btn-primary">login</button>
+<button class="btn btn-primary" id="switch">Click here to Sign Up</button>
+
+
+<script>
+    let login = true;
+
+    document.querySelector("#switch").addEventListener("click", switchLoginSignUp)
+
+    function switchLoginSignUp() {
+        if (login) {
+            //change the UI to signup
+            $("#switch").text("Click here to Log In")
+            $('#header').text('Sign up');
+            $("#submitBtn").text("sign up")
+            login = !login
+        } else {
+            //change UI to login
+            $("#switch").text("Click here to Sign Up")
+            $("#header").text("Log In")
+            $("#submitBtn").text("login")
+            login = !login
+        }
+    }
+
+    function loginComponent() {
+        const data = {
+            username: $("#login").val().trim(),
+            password: $("#password").val().trim()
+        }
+        if (login)
+        //login block
+        {
+            axios.post("/auth/login",)
+                .then(result => {
+                    sessionStorage.setItem("user", JSON.stringify(result.data.user))
+                    console.log(result.data)
+                })
+                .catch(e => {
+                    alert("wrong credentionals")
+                })
+        } else {
+            //signup logic
+            axios.post("/auth/signup"), 
+            }
+
+
+
+    }
+</script>

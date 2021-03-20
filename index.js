@@ -9,12 +9,11 @@ app.use(session({ secret: "weak", resave: true }));
 const DB = require("./utils/db");
 app.engine("handlebars", handlebars());
 app.set("view engine", "handlebars");
+app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
 app.use("/auth", require("./routes/auth"));
-
+app.use("/post", require("./routes/post"));
+app.use(require("./routes/web"));
 const PORT = process.env.PORT || 3000;
 DB.sync();
 app.listen(PORT, () => {

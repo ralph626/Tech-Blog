@@ -6,10 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
+    {{!-- bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {{!-- axios script --}}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    {{!-- alpine script --}}
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.fontspace.com/a-astro-space-font-f46028">
+    <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 
 <body>
-    {{{body}}}
+    <div class="p-5 bg-warning shadow">
+        <h1 style="text-align: center;font-family">My Tech Space</h1>
+    </div>
+    <div class="container mt-5 bg-light p-5 shadow-lg">
+
+        {{{body}}}
+    </div>
 </body>
 
 </html>
