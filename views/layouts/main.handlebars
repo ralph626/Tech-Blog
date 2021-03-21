@@ -18,14 +18,48 @@
     <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 
+<style>
+    .nav-item {
+        margin-left: 10px
+    }
+</style>
+
 <body>
-    <div class="p-5 bg-warning shadow">
+    <div class="p-5 bg-warning shadow" style="width:100%;display:inline-flex;justify-content: center">
         <h1 style="text-align: center;font-family">My Tech Space</h1>
+        <span id="navItems" style="margin-left: 100px"></span>
     </div>
     <div class="container mt-5 bg-light p-5 shadow-lg">
-
         {{{body}}}
     </div>
 </body>
+
+<script>
+
+    const currentUser = sessionStorage.getItem("user")
+        ? JSON.parse(sessionStorage.getItem("user"))
+        : null;
+
+    if (currentUser) {
+
+        $("#navItems").append(`<ul class="navbar-nav" style="flex-direction:row; width: 100%">
+<li class="nav-item active">
+  <a class="nav-link" href="/dashboard">Home</a>
+  </li>
+<li class="nav-item">
+<a class="nav-link" href="/post">New Post</a>
+</li>
+<li class="nav-item" id="logoutBtn">
+  <a class="nav-link" href="#">Log Out</a>
+  </li>
+</ul>`);
+    }
+
+    $('#logoutBtn').click(() => {
+        sessionStorage.clear();
+        location.replace("/")
+    })
+
+</script>
 
 </html>

@@ -9,13 +9,20 @@ class UserController {
     });
   }
   async login(userName, password) {
-    const user = await User.findOne({
-      userName,
-    });
-    if (user && bcrypt.compareSync(password, user.password)) {
+    console.log(userName);
+    const user = await User.findOne({ where: { userName } });
+
+    console.log(user.dataValues);
+    console.log(password);
+    const passwordValid = bcrypt.compareSync(
+      password,
+      user.dataValues.password
+    );
+    console.log(passwordValid);
+    if (user && passwordValid) {
       return {
-        id: user.id,
-        userName: user.userName,
+        id: user.dataValues.id,
+        userName: user.dataValues.userName,
       };
     }
     return false;

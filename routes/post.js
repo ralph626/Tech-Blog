@@ -3,10 +3,9 @@ const PostController = require("../controllers/postController");
 const session = require("../middleware/session");
 const Post = new PostController();
 
-router.post("/", session.requireLogin, async (req, res) => {
-  res.json(
-    await Post.add(req.body.title, req.body.content, req.session.user.id)
-  );
+router.post("/", async (req, res) => {
+  console.log(req.body);
+  res.json(await Post.add(req.body.title, req.body.content, req.body.userId));
 });
 
 module.exports = router;

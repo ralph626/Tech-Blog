@@ -5,11 +5,13 @@ const session = require("../middleware/session");
 const User = new UserController();
 
 router.post("/register", async (req, res) => {
+  console.log(req.body);
   const user = await User.add(req.body.userName, req.body.password);
   res.json({ userName: user.userName });
 });
 
 router.post("/login", async (req, res) => {
+  console.log("LOGGING IN ", req.body);
   const user = await User.login(req.body.userName, req.body.password);
   if (!user) {
     res.status(401).end();
@@ -19,6 +21,7 @@ router.post("/login", async (req, res) => {
     user,
   });
 });
+
 router.get("/", session.requireLogin, async (req, res) => {
   res.json(req.session.user);
 });

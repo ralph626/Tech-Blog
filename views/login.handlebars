@@ -1,3 +1,8 @@
+<style>
+    input {
+        font-family: initial;
+    }
+</style>
 <h1 id="header">
     Log In
 </h1>
@@ -14,9 +19,12 @@
 
 
 <script>
+    const userSession = sessionStorage.getItem("user");
+    if (userSession) location.replace("/dashboard")
     let login = true;
 
-    document.querySelector("#switch").addEventListener("click", switchLoginSignUp)
+    document.querySelector("#switch").addEventListener("click", switchLoginSignUp);
+    $("#submitBtn").click(loginComponent)
 
     function switchLoginSignUp() {
         if (login) {
@@ -36,26 +44,26 @@
 
     function loginComponent() {
         const data = {
-            username: $("#login").val().trim(),
+            userName: $("#login").val().trim(),
             password: $("#password").val().trim()
         }
-        if (login)
-        //login block
-        {
-            axios.post("/auth/login",)
+        if (login) {
+            //login block
+            axios.post("/auth/login", data)
                 .then(result => {
                     sessionStorage.setItem("user", JSON.stringify(result.data.user))
-                    console.log(result.data)
+                    location.replace("/dashboard")
                 })
                 .catch(e => {
                     alert("wrong credentionals")
                 })
         } else {
             //signup logic
-            axios.post("/auth/signup"), 
-            }
-
-
-
+            axios.post("/auth/register", data)
+                .then(result => {
+                    sessionStorage.setItem("user", JSON.stringify(result.data.user))
+                    location.replace("/dashboard")
+                })
+        }
     }
 </script>
