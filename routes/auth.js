@@ -7,7 +7,8 @@ const User = new UserController();
 router.post("/register", async (req, res) => {
   console.log(req.body);
   const user = await User.add(req.body.userName, req.body.password);
-  res.json({ userName: user.userName });
+  req.session.user = user;
+  res.json({ user: { userName: user.userName, id: user.id } });
 });
 
 router.post("/login", async (req, res) => {
@@ -23,6 +24,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/", session.requireLogin, async (req, res) => {
+  console.log(req.session);
   res.json(req.session.user);
 });
 

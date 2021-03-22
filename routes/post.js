@@ -8,4 +8,10 @@ router.post("/", async (req, res) => {
   res.json(await Post.add(req.body.title, req.body.content, req.body.userId));
 });
 
+router.post("/comment", async (req, res) => {
+  console.log(req.body);
+  const data = await Post.addComment({ ...req.body });
+  console.log(data);
+});
+
 module.exports = router;

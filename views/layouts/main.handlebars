@@ -58,8 +58,9 @@
 </ul>`);
     }
 
-    $('#logoutBtn').click(() => {
+    $('#logoutBtn').click(async () => {
         sessionStorage.clear();
+        await axios.post("/auth/logout")
         location.replace("/")
     })
 

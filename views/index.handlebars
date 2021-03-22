@@ -8,7 +8,14 @@
     <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
         <p class="card-text">{{content}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        {{#each Comments}}
+        <h6>{{dataValues.comment}} - {{dataValues.author}} at {{dataValues.createdAt}}</h6>
+        {{/each}}
+        <textarea rows="3" id="comment{{id}}" style="display:none; width: 80%; margin:auto"
+            placeholder="leave a comment on this post"></textarea>
+        <button id={{id}} class="btn btn-primary commentBtn">Comment</button>
+        <button class="btn btn-danger cancelBtn" style="display: none">Cancel</button>
+        <button id={{id}} class="btn btn-success submitBtn" style="display: none">Submit</button>
     </div>
 </div>
 {{/each}}

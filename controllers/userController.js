@@ -1,4 +1,5 @@
 const User = require("../models/user");
+//hash the password
 const bcrypt = require("bcrypt");
 
 class UserController {
