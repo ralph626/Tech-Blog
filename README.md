@@ -1,9 +1,5 @@
 # Tech-Blog
 
-Employee directory with React. Use Components to break down the app's UI. manage component state, and respond to user events.
-
-A workout tracker. Using Mongo database with Mongoose schema and handle routes with express
-
 ![Logo of the project](https://github.com/ralph626/Tech-Blog/blob/main/images/techblogHomepage.PNG?raw=true)
 
 # Tech-Directory Description:
