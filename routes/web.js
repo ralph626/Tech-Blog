@@ -13,7 +13,7 @@ router.get("/dashboard", async (req, res) => {
     where: { userId: req.session.user.id },
     include: [Comment],
   });
-  console.log(blog.map((a) => a.dataValues)[0].Comments);
+
   res.render("index", { blog: blog.map((a) => a.dataValues) });
 });
 
