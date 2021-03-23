@@ -2,6 +2,7 @@ const mysql = require("mysql2");
 const { Sequelize } = require("sequelize");
 const context = process.env.NODE_ENV || "local";
 let sequelize;
+console.log(context);
 if (context === "production") {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
